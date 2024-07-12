@@ -37,6 +37,16 @@
             padding: 10px;
             font-size: 16px;
         }
+        .description {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .description h2 {
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -50,6 +60,13 @@
             <option value="ticket">Submit Ticket Form</option>
             <option value="refund">Refunds Form</option>
         </select>
+
+        <div class="description" id="formDescription">
+            <h2>Form Descriptions</h2>
+            <p><strong>Status Request Form:</strong> Use this form to check the status of your drug test. You can inquire about the progress and results of your test.</p>
+            <p><strong>Submit Ticket Form:</strong> Use this form for general inquiries. Whether you have questions, issues, or need assistance, submit a ticket and our support team will get back to you.</p>
+            <p><strong>Refunds Form:</strong> Use this form to request a refund for your drug test. Provide the necessary details to process your refund promptly.</p>
+        </div>
 
         <div class="form-container" id="statusForm">
             <h2>Status Request Form</h2>
@@ -76,7 +93,7 @@
             document.getElementById('statusForm').style.display = 'none';
             document.getElementById('ticketForm').style.display = 'none';
             document.getElementById('refundForm').style.display = 'none';
-
+            
             // Show selected form
             if (selectedForm === 'status') {
                 document.getElementById('statusForm').style.display = 'block';
