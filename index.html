@@ -21,6 +21,7 @@
             color: #333;
         }
         .form-container {
+            display: none;
             margin: 20px 0;
             background-color: #fff;
             padding: 20px;
@@ -31,6 +32,11 @@
             height: 500px;
             border: none;
         }
+        .selector {
+            margin: 20px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -38,20 +44,48 @@
         <h1>Welcome to Our Forms</h1>
         <p>Please select the form you need below:</p>
 
-        <div class="form-container">
+        <select class="selector" id="formSelector" onchange="showForm()">
+            <option value="">Select a form</option>
+            <option value="status">Status Request Form</option>
+            <option value="ticket">Submit Ticket Form</option>
+            <option value="refund">Refunds Form</option>
+        </select>
+
+        <div class="form-container" id="statusForm">
             <h2>Status Request Form</h2>
             <iframe src="https://forms.gle/U9pZp1gXwbwc5Cyr8"></iframe>
         </div>
 
-        <div class="form-container">
+        <div class="form-container" id="ticketForm">
             <h2>Submit Ticket Form</h2>
             <iframe src="https://forms.gle/BGh8n9V3CiiprWpY7"></iframe>
         </div>
 
-        <div class="form-container">
+        <div class="form-container" id="refundForm">
             <h2>Refunds Form</h2>
             <iframe src="https://forms.gle/3MR5GSYQ4xB3G3us7"></iframe>
         </div>
     </div>
+
+    <script>
+        function showForm() {
+            var selector = document.getElementById('formSelector');
+            var selectedForm = selector.value;
+            
+            // Hide all forms
+            document.getElementById('statusForm').style.display = 'none';
+            document.getElementById('ticketForm').style.display = 'none';
+            document.getElementById('refundForm').style.display = 'none';
+
+            // Show selected form
+            if (selectedForm === 'status') {
+                document.getElementById('statusForm').style.display = 'block';
+            } else if (selectedForm === 'ticket') {
+                document.getElementById('ticketForm').style.display = 'block';
+            } else if (selectedForm === 'refund') {
+                document.getElementById('refundForm').style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
